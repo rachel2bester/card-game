@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f673a85-7165-4028-bdff-a7cec41beac2" name="Changes" comment="Made snap for multiple players">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cardgames/Snap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/players/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/players/SnapPlayer.java" afterDir="false" />
+    <list default="true" id="6f673a85-7165-4028-bdff-a7cec41beac2" name="Changes" comment="Made one player game work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cardgames/CardGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Snap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cardgames/Snap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cardgames/Snap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657016614795</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Made one player game work">
+      <created>1657102467141</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657102467141</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +105,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="did stage 1 and 2" />
     <MESSAGE value="Made snap for multiple players" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made snap for multiple players" />
+    <MESSAGE value="Made one player game work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made one player game work" />
   </component>
 </project>

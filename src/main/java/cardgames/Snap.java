@@ -5,6 +5,7 @@ import players.SnapPlayer;
 
 import java.util.ArrayList;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class Snap extends CardGame {
     ArrayList<SnapPlayer> players;
@@ -59,7 +60,6 @@ public class Snap extends CardGame {
         System.out.println("Your new card is " + currentCard);
         boolean isActive = true;
         while (isActive) {
-
             System.out.println("Press Enter to receive a new card");
             scanner.nextLine();
             previousCard = currentCard;
@@ -67,14 +67,26 @@ public class Snap extends CardGame {
             System.out.println("Your new card is " + currentCard);
             if (currentCard.getValue() == previousCard.getValue()) {
 
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        System.out.println("\nTime's up" +
+                                "\n You lost!");
+                        return;
+                    }
+                };
 
-                System.out.println("You Win");
+                Timer timer = new Timer();
+                String input = "";
+                timer.schedule( task, 5 * 1000);
+                while (!input.equals("snap")) {
+                    input = getStringInput();
+                }
+                timer.cancel();
+                System.out.println("You Win!");
                 isActive = false;
             }
-
         }
-
-
     }
 
     private boolean hasWon(SnapPlayer currentPlayer) {
