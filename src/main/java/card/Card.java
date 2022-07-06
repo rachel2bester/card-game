@@ -1,11 +1,11 @@
-package org.example;
+package card;
+
+import cardgames.CardGame;
 
 public class Card implements Comparable<Card>{
     String suit;
     String symbol;
     int value;
-
-
 
     public Card(String suit, String symbol, int value) {
         this.suit = suit;
@@ -17,11 +17,9 @@ public class Card implements Comparable<Card>{
     public String toString() {
         return symbol + suit;
     }
-
     public String getSuit() {
         return suit;
     }
-
     public String getSymbol() {
         return symbol;
     }
