@@ -1,3 +1,4 @@
+import card.Card;
 import cardgames.CardGame;
 import cardgames.Snap;
 

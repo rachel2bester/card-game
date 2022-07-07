@@ -9,10 +9,12 @@ import java.util.TimerTask;
 
 public class Snap extends CardGame {
     ArrayList<SnapPlayer> players;
+    boolean gameOver;
 
     @Override
     public void run() {
-        shuffleDeck();
+        gameOver = false;
+        sortDeckInNumberOrder();
         System.out.println("Welcome to Snap." +
                 "\nHow many players?");
         int numberOfPlayers = getIntegerInput(1, 6);
@@ -20,6 +22,17 @@ public class Snap extends CardGame {
             onePlayerGame();
         } else {
             multiplePlayerGame(numberOfPlayers);
+        }
+        System.out.println("Play Again?" +
+                "\nEnter Y/N");
+        String input = getStringInput();
+        while (!input.toLowerCase().equals("y") && !input.toLowerCase().equals("n")) {
+            System.out.println("Incorrect Input " +
+                    "\nEnter Y/N");
+            input = getStringInput();
+        }
+        if (input.toLowerCase().equals("y")) {
+            run();
         }
     }
 
@@ -41,12 +54,37 @@ public class Snap extends CardGame {
                 System.out.println("\nIt is " + currentPlayer.getName() + "'s turn" +
                         "\nPress Enter to receive your card");
                 scanner.nextLine();
-                currentPlayer.setCard(dealCard());
+                try {
+                    currentPlayer.setCard(dealCard());
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Cards have all been dealt. No one won this round.");
+                    return;
+                }
                 System.out.println("Your card is: " + currentPlayer.getCard());
                 displayCards();
-                if (hasWon(currentPlayer)) {
-                    isActive = false;
-                    break;
+                if (hasMatch(currentPlayer)) {
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            System.out.println("\nTime's up" +
+                                    "\nThe game continues.");
+                            gameOver = false;
+                        }
+                    };
+
+                    Timer timer = new Timer();
+                    String input = "";
+                    timer.schedule( task, 2 * 1000);
+                    gameOver = true;
+                    while (!input.toLowerCase().equals("snap") && gameOver) {
+                        input = scanner.nextLine();
+                    }
+                    timer.cancel();
+                    if (input.equals("snap") && gameOver) {
+                        System.out.println("You Win!");
+                        isActive = false;
+                        break;
+                    }
                 }
             }
         }
@@ -63,36 +101,43 @@ public class Snap extends CardGame {
             System.out.println("Press Enter to receive a new card");
             scanner.nextLine();
             previousCard = currentCard;
-            currentCard = dealCard();
+            try {
+                currentCard = dealCard();
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Cards have all been dealt. No one won this round.");
+                return;
+            }
+
             System.out.println("Your new card is " + currentCard);
             if (currentCard.getValue() == previousCard.getValue()) {
-
                 TimerTask task = new TimerTask() {
                     @Override
                     public void run() {
                         System.out.println("\nTime's up" +
-                                "\n You lost!");
-                        return;
+                                "\nYou lost!");
+                        gameOver = true;
                     }
                 };
-
                 Timer timer = new Timer();
                 String input = "";
-                timer.schedule( task, 5 * 1000);
-                while (!input.equals("snap")) {
-                    input = getStringInput();
+                timer.schedule( task, 2 * 1000);
+                while (!input.equals("snap") && !gameOver) {
+                    input = scanner.nextLine();
                 }
                 timer.cancel();
-                System.out.println("You Win!");
+                if (input.equals("snap") && !gameOver) {
+                    System.out.println("You Win!");
+                    gameOver = true;
+                    input = scanner.nextLine();
+                }
                 isActive = false;
             }
         }
     }
 
-    private boolean hasWon(SnapPlayer currentPlayer) {
+    private boolean hasMatch(SnapPlayer currentPlayer) {
         for (SnapPlayer player: players) {
             if (player != currentPlayer && player.getCard() != null && player.getCard().getValue() == currentPlayer.getCard().getValue()) {
-                System.out.println("\n" + currentPlayer.getName() + " Wins!");
                 return true;
             }
         }
