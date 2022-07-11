@@ -8,13 +8,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Snap extends CardGame {
-    ArrayList<SnapPlayer> players;
-    boolean gameOver;
+    private ArrayList<SnapPlayer> players;
+    private boolean gameOver;
 
     @Override
     public void run() {
         gameOver = false;
-        sortDeckInNumberOrder();
+        makeNewDeck();
+        shuffleDeck();
+        sortDeckIntoSuits();
         System.out.println("Welcome to Snap." +
                 "\nHow many players?");
         int numberOfPlayers = getIntegerInput(1, 6);
@@ -26,12 +28,12 @@ public class Snap extends CardGame {
         System.out.println("Play Again?" +
                 "\nEnter Y/N");
         String input = getStringInput();
-        while (!input.toLowerCase().equals("y") && !input.toLowerCase().equals("n")) {
+        while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n")) {
             System.out.println("Incorrect Input " +
                     "\nEnter Y/N");
             input = getStringInput();
         }
-        if (input.toLowerCase().equals("y")) {
+        if (input.equalsIgnoreCase("y")) {
             run();
         }
     }
@@ -76,7 +78,7 @@ public class Snap extends CardGame {
                     String input = "";
                     timer.schedule( task, 2 * 1000);
                     gameOver = true;
-                    while (!input.toLowerCase().equals("snap") && gameOver) {
+                    while (!input.equalsIgnoreCase("snap") && gameOver) {
                         input = scanner.nextLine();
                     }
                     timer.cancel();
@@ -128,7 +130,7 @@ public class Snap extends CardGame {
                 if (input.equals("snap") && !gameOver) {
                     System.out.println("You Win!");
                     gameOver = true;
-                    input = scanner.nextLine();
+                    scanner.nextLine();
                 }
                 isActive = false;
             }

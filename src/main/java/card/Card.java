@@ -1,13 +1,11 @@
 package card;
 
-import cardgames.CardGame;
-
 public class Card implements Comparable<Card>{
-    String suit;
-    String symbol;
-    int value;
+    private final CardSuit suit;
+    private final String symbol;
+    private final int value;
 
-    public Card(String suit, String symbol, int value) {
+    public Card(CardSuit suit, String symbol, int value) {
         this.suit = suit;
         this.symbol = symbol;
         this.value = value;
@@ -17,11 +15,9 @@ public class Card implements Comparable<Card>{
     public String toString() {
         return symbol + suit;
     }
-    public String getSuit() {
+
+    public CardSuit getSuit() {
         return suit;
-    }
-    public String getSymbol() {
-        return symbol;
     }
 
     public int getValue() {
@@ -30,16 +26,6 @@ public class Card implements Comparable<Card>{
 
     @Override
     public int compareTo(Card o) {
-        return this.getSuitValue() - o.getSuitValue();
-    }
-
-    private int getSuitValue() {
-        String[] suits = CardGame.getSuits();
-        for (int i = 0; i < suits.length; i++) {
-            if (suit.equals(suits[i])) {
-                return i;
-            }
-        }
-        return -1;
+        return this.suit.getValue() - o.suit.getValue();
     }
 }

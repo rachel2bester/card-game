@@ -1,6 +1,7 @@
 package cardgames;
 
 import card.Card;
+import card.CardSuit;
 
 import java.util.*;
 
@@ -13,10 +14,14 @@ public abstract class CardGame {
 
 
     public CardGame() {
+        makeNewDeck();
+    }
+
+    protected void makeNewDeck() {
         deckOfCards = new ArrayList<>();
         String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         for (int i = 0; i < symbols.length; i++) {
-            for (String suit: suits) {
+            for (CardSuit suit: CardSuit.values()) {
                 deckOfCards.add(new Card(suit, symbols[i], i + 2));
             }
         }
@@ -35,7 +40,6 @@ public abstract class CardGame {
     }
 
     public void sortDeckIntoSuits() {
-        sortDeckInNumberOrder();
         Collections.sort(deckOfCards);
     }
 
@@ -47,10 +51,6 @@ public abstract class CardGame {
 
     public void shuffleDeck() {
         Collections.shuffle(deckOfCards);
-    }
-
-    public static String[] getSuits() {
-        return suits;
     }
 
     public abstract void run();
