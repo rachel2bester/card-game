@@ -9,7 +9,6 @@ import static java.util.stream.Collectors.toCollection;
 
 public abstract class CardGame {
     private ArrayList<Card> deckOfCards;
-    private final static String[] suits = {"\u2663", "\u2666", "\u2665", "\u2660"};
     protected static final Scanner scanner = new Scanner(System.in);
 
 
@@ -58,7 +57,6 @@ public abstract class CardGame {
     public static String getStringInput() {
         System.out.println("Enter text");
         String userInput = scanner.nextLine();
-
         if (userInput.length() > 0) {
             return userInput;
         } else {
@@ -70,7 +68,6 @@ public abstract class CardGame {
     public static int getIntegerInput(int min, int max) {
         System.out.println("Enter a number between "+ min +" and " + max);
         int userInput;
-
         try {
              userInput = scanner.nextInt();
         } catch (InputMismatchException e) {
@@ -78,7 +75,6 @@ public abstract class CardGame {
             scanner.nextLine();
             return getIntegerInput(min, max);
         }
-
         if (userInput >= min && userInput <= max) {
             scanner.nextLine();
             return userInput;

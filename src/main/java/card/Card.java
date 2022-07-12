@@ -25,7 +25,7 @@ public class Card implements Comparable<Card>{
     }
 
     @Override
-    public int compareTo(Card o) {
+    public int compareTo(Card o) { //for sorting into suit order
         return this.suit.getValue() - o.suit.getValue();
     }
 }
