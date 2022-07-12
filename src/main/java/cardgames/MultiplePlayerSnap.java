@@ -19,7 +19,7 @@ public class MultiplePlayerSnap extends Snap {
             SnapPlayer winner = getWinner(players.size());
             System.out.println(winner.getName() + " Wins!");
         } catch (IndexOutOfBoundsException e) {//when deck is empty
-            System.out.println("Cards have all been dealt. No one won this round.");
+            System.out.println("Cards have all been dealt. No one won this game.");
         }
     }
 
@@ -33,8 +33,8 @@ public class MultiplePlayerSnap extends Snap {
     private SnapPlayer getWinner(int numberOfPlayers) {
         for (int i = 0; i < numberOfPlayers; i++) {
             SnapPlayer currentPlayer = players.get(i);
-            boolean win = turn(currentPlayer);
-            if (win) {
+            boolean hasWon = turn(currentPlayer);
+            if (hasWon) {
                 return currentPlayer;
             }
         }

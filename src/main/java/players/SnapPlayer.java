@@ -3,7 +3,6 @@ package players;
 import card.Card;
 
 public class SnapPlayer extends Player{
-
     private Card card;
 
     public SnapPlayer(String name) {

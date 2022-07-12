@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f673a85-7165-4028-bdff-a7cec41beac2" name="Changes" comment="got card game working with more srp">
+    <list default="true" id="6f673a85-7165-4028-bdff-a7cec41beac2" name="Changes" comment="made snap abstract and implemented one player and multiple player as classes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cardgames/Snap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cardgames/Snap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cardgames/MultiplePlayerSnap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cardgames/MultiplePlayerSnap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cardgames/OnePlayerSnap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cardgames/OnePlayerSnap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/players/SnapPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/SnapPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2BW5uJkGhFuC0REffn07fDnC5Uv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -117,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657617261041</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made snap abstract and implemented one player and multiple player as classes">
+      <created>1657618424023</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657618424023</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +152,7 @@
     <MESSAGE value="fixed snap timer" />
     <MESSAGE value="made card suit enums" />
     <MESSAGE value="got card game working with more srp" />
-    <option name="LAST_COMMIT_MESSAGE" value="got card game working with more srp" />
+    <MESSAGE value="made snap abstract and implemented one player and multiple player as classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="made snap abstract and implemented one player and multiple player as classes" />
   </component>
 </project>
